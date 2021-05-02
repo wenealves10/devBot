@@ -1,2 +1,2 @@
-# bot-barber-shop
+# botDev
 This is a bot for barber shop 
