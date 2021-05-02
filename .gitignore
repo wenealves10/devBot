@@ -22,6 +22,10 @@ lib-cov
 coverage
 *.lcov
 
+/src/images
+
+/tokens
+/temp
 # nyc test coverage
 .nyc_output
 
