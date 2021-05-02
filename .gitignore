@@ -25,7 +25,7 @@ coverage
 /src/images
 
 /tokens
-
+/temp
 # nyc test coverage
 .nyc_output
 
