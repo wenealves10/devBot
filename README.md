@@ -1,4 +1,2 @@
-# bot-barber-shop
-
-This is a bot for barber shop
-
+##DevBot
+#This is a bot for DevBot
