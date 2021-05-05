@@ -1,7 +1,17 @@
 {
   "invite": {
     "linkGif": "https://media.giphy.com/media/sxkP02MRihq3uJDzW8/giphy.gif",
-    "message1": "Bem vindo, novo amigo. Que você venha trazendo muita felicidade para compartilhar conosco! 😎🙏🏼",
-    "message2":"Olá, sou o assistente virtual da Community DevBot, meu nome é *DevBot🤖* \npara ter acesso aos meus comandos digite ex: #register"
+    "message1": "Que você venha trazendo muita felicidade para compartilhar conosco! 😎🙏🏼",
+    "message2":"Olá, sou o assistente virtual da Community DevBot, meu nome é *DevBot🤖*\n*Para ter acesso aos meus comandos digite:* #register"
+  },
+  "register": {
+    "message1":"*Desculpe ainda estamos em fase desenvolvimento*😥,\nMas você pode contribuir com nosso projeto open source do *DevBot🤖*\nLink do *repositório do github*: https://github.com/wenealves10/devBot.git\nSeu código é sempre bem-vindo😉👍",
+    "message2": "para você se registar digite:\n\n#name <nome> <idade> <linguagem-favorita>\n\n*Exemplo*: #name WeneAlves 19 TypeScript\n\n*Ok??*\n\n🤖👍",
+    "message3": "você já está *cadastrado* 🤖🙌\n*Para mais sobre você* *informações* digite: #perfil\n\n🤖👍"
+
+  },
+  "perfil": {
+    "linkPicture": "https://lh3.googleusercontent.com/proxy/qG8Kn-Nyjg9K3nJ7Na_obLsZqrU14p415DwVI4P7cSdHaV2qn1u_GpYLN1lSJzDRhNdoAzqgkXKR1UPZnsKrNQVBHqLDykiuAGwFuvBVnS8gFEiikslinjNkkQAd7cDNJSzv0weTyhAIg7QecuPKlr3-hcvls-69EAx996E-rD3hg-M3LdFF",
+    "message": "Você ainda não está *cadastrado*\n\nPor favor se cadastrar para ter acesso ao *comandos*\n\n*Digite* #register \n\n🤖👍"
   }
 }

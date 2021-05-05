@@ -24,6 +24,8 @@ coverage
 
 /src/images
 
+/src/database/*.sqlite
+
 /tokens
 /temp
 # nyc test coverage
