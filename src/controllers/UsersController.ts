@@ -37,7 +37,11 @@ class UsersController {
 
       await whatsapp.reply(
         message.from,
-        `*${message.sender.pushname}* ${messages.register.message2}`,
+        `*${
+          message.sender.pushname !== undefined
+            ? message.sender.pushname
+            : "Não achei nome"
+        }* ${messages.register.message2}`,
         message.id
       );
       return;
@@ -46,7 +50,7 @@ class UsersController {
     if (
       String(message.body)
         .toLowerCase()
-        .match(/(^#name)(\s+\w+)(\s+\d{2})(\s+\w+\s*)$/gi)
+        .match(/^#name(\s+[\w\W]+)(\s+\d{2})(\s+[\w\W]+\s*)$/gi)
     ) {
       const number_phone = String(message.sender.id).split("@")[0];
       console.log(number_phone);
@@ -73,9 +77,7 @@ class UsersController {
         return;
       }
 
-      const data = String(message.body.match(/[0-9]+|[A-Z][a-z]*/gis)).split(
-        ","
-      );
+      const data = String(message.body.match(/\S+/gis)).split(",");
 
       await usersService.create({
         name: data[1],
@@ -121,7 +123,7 @@ class UsersController {
       message.chatId,
       picturePerfil,
       "perfil",
-      `\t\t *🛑 Dados do Perfil 🛑*\n\n*Nome:* ${userExists.name}\n*Idade:* ${
+      `\t\t   *🛑 Dados do Perfil 🛑*\n\n*Nome:* ${userExists.name}\n*Idade:* ${
         userExists.age
       } anos\n*Linguagem Favorita:* ${userExists.language}\n*Whatsapp:* ${
         userExists.number_phone
@@ -131,7 +133,9 @@ class UsersController {
         userExists.active ? "Sim" : "Não"
       }\n*Nível:* ${userExists.level}\n*XP:* ${
         userExists.xp
-      }\n*Total de comandos:* ${userExists.commands}`
+      }\n*Total de comandos:* ${
+        userExists.commands
+      }\nTudo ok!! *comandos* digite: #menu\n🤖👍`
     );
   }
 }
