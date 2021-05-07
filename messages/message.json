@@ -6,8 +6,9 @@
   },
   "register": {
     "message1":"*Desculpe ainda estamos em fase desenvolvimento*😥,\nMas você pode contribuir com nosso projeto open source do *DevBot🤖*\nLink do *repositório do github*: https://github.com/wenealves10/devBot.git\nSeu código é sempre bem-vindo😉👍",
-    "message2": "para você se registar digite:\n\n#name <nome> <idade> <linguagem-favorita>\n\n*Exemplo*: #name WeneAlves 19 TypeScript\n\n*Ok??*\n\n🤖👍",
-    "message3": "você já está *cadastrado* 🤖🙌\n*Para mais sobre você* *informações* digite: #perfil\n\n🤖👍"
+    "message2": "*você precisa registrar-se, digite:*\n\n#name <nome> <idade> <linguagem-favorita>\n\n*Exemplo*: #name WeneAlves 19 TypeScript\n\n*Ok??*\n\n𝔻𝕖𝕧𝔹𝕠𝕥™ 🤖🦾",
+    "message3": "*você já está cadastrado* ✅\n\n*🛑Para saber mais informações🛑*\n\n*Digite:* #perfil\n\n𝔻𝕖𝕧𝔹𝕠𝕥™ 🤖🦾",
+    "message4": "*você foi cadastrado com sucesso*🎉🎊🎇\n\n*🛑Para saber mais informações🛑*\n\n*Digite:* #perfil\n\n𝔻𝕖𝕧𝔹𝕠𝕥™ 🤖🦾"
 
   },
   "perfil": {

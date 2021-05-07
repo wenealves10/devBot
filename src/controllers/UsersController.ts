@@ -2,33 +2,40 @@ import { Message, ParticipantEvent, Whatsapp } from "venom-bot";
 import messages from "../../messages/message.json";
 import { UsersService } from "../services/UsersService";
 import tokens from "../../tokens/tokens.json";
+import { checkCommandName, getData, getStringClient } from "../regex/index";
 
 class UsersController {
   async invite(event: ParticipantEvent, whatsapp: Whatsapp) {
     if (String(event.action) !== "invite") return;
+
     await whatsapp.sendImageAsStickerGif(
       tokens.group2,
       messages.invite.linkGif
     );
+
     await whatsapp.sendMentioned(
       tokens.group2,
-      `*Bem vindo*, @${String(event.who).split("@")[0]} ${
+      `*Bem vindo*, @${getStringClient(event.who, "@")} ${
         messages.invite.message1
       }`,
-      [String(event.who).split("@")[0]]
+      [getStringClient(event.who, "@")]
     );
+
     await whatsapp.sendText(tokens.group2, messages.invite.message2);
   }
 
   async register(message: Message, whatsapp: Whatsapp) {
     const usersService = new UsersService();
+
     if (String(message.body) === "#register") {
-      const number_phone = String(message.sender.id).split("@")[0];
+      const number_phone = getStringClient(message.sender.id, "@");
+
       const userExists = await usersService.findUser(number_phone);
+
       if (userExists) {
         await whatsapp.reply(
-          message.from,
-          `*${message.sender.pushname}* ${messages.register.message3}`,
+          message.chatId,
+          `*${userExists.name}* ${messages.register.message3}`,
           message.id
         );
 
@@ -36,50 +43,44 @@ class UsersController {
       }
 
       await whatsapp.reply(
-        message.from,
+        message.chatId,
         `*${
           message.sender.pushname !== undefined
             ? message.sender.pushname
-            : "Não achei nome"
+            : "⚠*Sem nome*⚠"
         }* ${messages.register.message2}`,
         message.id
       );
       return;
     }
 
-    if (
-      String(message.body)
-        .toLowerCase()
-        .match(/^#name(\s+[\w\W]+)(\s+\d{2})(\s+[\w\W]+\s*)$/gi)
-    ) {
-      const number_phone = String(message.sender.id).split("@")[0];
-      console.log(number_phone);
+    if (checkCommandName.test(message.body)) {
+      const number_phone = getStringClient(message.sender.id, "@");
+
       const userExists = await usersService.findUser(number_phone);
-
-      const adminsList = await whatsapp.getGroupAdmins(message.chatId);
-      let isAdmin: boolean = false;
-
-      adminsList.forEach((adm) => {
-        if (adm.user === number_phone) {
-          isAdmin = true;
-        }
-      });
-
-      console.log(isAdmin);
 
       if (userExists) {
         await whatsapp.reply(
-          message.from,
-          `*${message.sender.pushname}* já foi *cadastrado* para ver digite: #perfil`,
+          message.chatId,
+          `*${userExists.name} ${messages.register.message3}`,
           message.id
         );
 
         return;
       }
 
-      const data = String(message.body.match(/\S+/gis)).split(",");
+      const adminsList = await whatsapp.getGroupAdmins(message.chatId);
+      let isAdmin: boolean = false;
 
-      await usersService.create({
+      adminsList.forEach((adm: any) => {
+        if (adm.user === number_phone) {
+          isAdmin = true;
+        }
+      });
+
+      const data = getData(message.body);
+
+      const user = await usersService.create({
         name: data[1],
         age: parseInt(data[2], 10),
         number_phone,
@@ -89,12 +90,12 @@ class UsersController {
         commands: 1,
         level: 10,
         office: "instrutor",
-        xp: 100,
+        xp: 250,
       });
 
       await whatsapp.reply(
-        message.from,
-        `*${message.sender.pushname}* ${messages.register.message3}`,
+        message.chatId,
+        `*${user.name}* ${messages.register.message4}`,
         message.id
       );
     }
@@ -103,15 +104,19 @@ class UsersController {
   async perfil(message: Message, whatsapp: Whatsapp) {
     if (String(message.body).toLowerCase() !== "#perfil") return;
 
-    const number_phone = String(message.sender.id).split("@")[0];
+    const number_phone = getStringClient(message.sender.id, "@");
     const usersService = new UsersService();
 
     const userExists = await usersService.findUser(number_phone);
 
     if (!userExists) {
       await whatsapp.reply(
-        message.from,
-        `*${message.sender.pushname}* ${messages.perfil.message}`,
+        message.chatId,
+        `*${
+          message.sender.pushname !== undefined
+            ? message.sender.pushname
+            : "⚠*Sem nome*⚠"
+        }* ${messages.perfil.message}`,
         message.id
       );
       return;
@@ -123,19 +128,19 @@ class UsersController {
       message.chatId,
       picturePerfil,
       "perfil",
-      `\t\t   *🛑 Dados do Perfil 🛑*\n\n*Nome:* ${userExists.name}\n*Idade:* ${
-        userExists.age
-      } anos\n*Linguagem Favorita:* ${userExists.language}\n*Whatsapp:* ${
-        userExists.number_phone
-      }\n*Admin:* ${
+      `\t\t   *🛑 Dados do Perfil 🛑*\n\n*😁Nome:* ${
+        userExists.name
+      }\n\n*⏳Idade:* ${userExists.age} anos\n\n*🌐Linguagem Favorita:* ${
+        userExists.language
+      }\n\n*📱Whatsapp:* ${userExists.number_phone}\n\n*🥇Admin:* ${
         userExists.admin_group ? "Sim" : "Não"
-      }\n*Cargo do grupo:* ${userExists.office}\n*Ativo:* ${
+      }\n\n*🎯Cargo do grupo:* ${userExists.office}\n\n*♻Ativo:* ${
         userExists.active ? "Sim" : "Não"
-      }\n*Nível:* ${userExists.level}\n*XP:* ${
+      }\n\n*⚔Nível:* ${userExists.level}\n\n*♨XP:* ${
         userExists.xp
-      }\n*Total de comandos:* ${
+      }\n\n*🗄Total de comandos:* ${
         userExists.commands
-      }\nTudo ok!! *comandos* digite: #menu\n🤖👍`
+      }\n\n*Comandos digite:* #menu\n\n𝔻𝕖𝕧𝔹𝕠𝕥™ 🤖🦾`
     );
   }
 }
