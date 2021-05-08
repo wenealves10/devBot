@@ -1,4 +1,5 @@
 import { Message, ParticipantEvent, Whatsapp } from "venom-bot";
+import dayjs from "dayjs";
 import messages from "../../messages/message.json";
 import { UsersService } from "../services/UsersService";
 import tokens from "../../tokens/tokens.json";
@@ -130,9 +131,9 @@ class UsersController {
       "perfil",
       `\t\t   *🛑 Dados do Perfil 🛑*\n\n*😁Nome:* ${
         userExists.name
-      }\n\n*⏳Idade:* ${userExists.age} anos\n\n*🌐Linguagem Favorita:* ${
+      }\n\n*⏳Idade:* ${userExists.age} anos\n\n*🌐Linguagem Favorita:* \`\`\`${
         userExists.language
-      }\n\n*📱Whatsapp:* ${userExists.number_phone}\n\n*🥇Admin:* ${
+      }\`\`\`\n\n*📱Whatsapp:* ${userExists.number_phone}\n\n*🥇Admin:* ${
         userExists.admin_group ? "Sim" : "Não"
       }\n\n*🎯Cargo do grupo:* ${userExists.office}\n\n*♻Ativo:* ${
         userExists.active ? "Sim" : "Não"
@@ -140,7 +141,9 @@ class UsersController {
         userExists.xp
       }\n\n*🗄Total de comandos:* ${
         userExists.commands
-      }\n\n*Comandos digite:* #menu\n\n𝔻𝕖𝕧𝔹𝕠𝕥™ 🤖🦾`
+      }\n\n*📅Data de criação: ${dayjs(userExists.created_at).format(
+        "DD/MM/YYYY HH:mm:ss"
+      )}*\n\n*⌨️Comandos digite:* #menu\n\n𝔻𝕖𝕧𝔹𝕠𝕥™ 🤖🦾`
     );
   }
 }
