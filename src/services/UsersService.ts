@@ -65,6 +65,61 @@ class UsersService {
 
     return userExists;
   }
+
+  async updateUserCommands(number_phone: string, commands: number) {
+    await this.usersRepository
+      .createQueryBuilder()
+      .update(User)
+      .set({ commands })
+      .where("number_phone = :number_phone", {
+        number_phone,
+      })
+      .execute();
+  }
+
+  async updateUserLevel(number_phone: string, level: number) {
+    await this.usersRepository
+      .createQueryBuilder()
+      .update(User)
+      .set({ level })
+      .where("number_phone = :number_phone", {
+        number_phone,
+      })
+      .execute();
+  }
+
+  async updateUserXP(number_phone: string, xp: number) {
+    await this.usersRepository
+      .createQueryBuilder()
+      .update(User)
+      .set({ xp })
+      .where("number_phone = :number_phone", {
+        number_phone,
+      })
+      .execute();
+  }
+
+  async updateUserOffice(number_phone: string, office: string) {
+    await this.usersRepository
+      .createQueryBuilder()
+      .update(User)
+      .set({ office })
+      .where("number_phone = :number_phone", {
+        number_phone,
+      })
+      .execute();
+  }
+
+  async updateUserADM(number_phone: string, admin_group: boolean) {
+    await this.usersRepository
+      .createQueryBuilder()
+      .update(User)
+      .set({ admin_group })
+      .where("number_phone = :number_phone", {
+        number_phone,
+      })
+      .execute();
+  }
 }
 
 export { UsersService };

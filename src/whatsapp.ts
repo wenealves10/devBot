@@ -1,8 +1,10 @@
 import { Whatsapp } from "venom-bot";
 import { group2 } from "../tokens/tokens.json";
 import { UsersController } from "./controllers/UsersController";
+import { CommandsController } from "./controllers/CommandsController";
 
 const usersController = new UsersController();
+const commandsController = new CommandsController();
 
 async function main(whatsapp: Whatsapp) {
   whatsapp.onAddedToGroup(async (chatEvent) => {
@@ -21,6 +23,10 @@ async function main(whatsapp: Whatsapp) {
 
     await usersController.register(message, whatsapp);
     await usersController.perfil(message, whatsapp);
+    await commandsController.removeParticipant(message, whatsapp);
+    await commandsController.addParticipant(message, whatsapp);
+    await commandsController.promoteParticipant(message, whatsapp);
+    await commandsController.demoteParticipant(message, whatsapp);
   });
 }
 

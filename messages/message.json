@@ -13,6 +13,30 @@
   },
   "perfil": {
     "linkPicture": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTn1RFHlqZz1rw9C0FADcighOWRJNz1ck6S9D1o-6ZeKJb6l1EwU__GKct7HZDbhvarvA&usqp=CAU",
-    "message": "Você ainda não está *cadastrado*\n\nPor favor se cadastrar para ter acesso ao *comandos*\n\n*Digite* #register \n\n🤖👍"
+    "message": "Você ainda não está *cadastrado*\n\nPor favor se cadastrar para ter acesso ao *comandos*\n\n*Digite* #register \n\n🤖👍",
+    "messageAdmin": "\t  *🛑 Comandos para ADMs 🛑*\n\n*📛Remover Participante:* #remove\n\n*✅Adicionar Participante:* #add <phone>\n\n*🟢Promover para ADM:* #promote\n\n*🔴Remover de ADM:* #demote\n\n*📶Gerar Link do Grupo:* #invitelink\n\n*🧿Retorna Grupo:* #infogroup <linkGroup>\n\n*🛄Adiciona bot:* #join <linkGroup>\n\n"
+  },
+  "commands": {
+    "removeParticipant": {
+      "userNotAdmin": "\t *🚫Uso restrito a ADM🚫*\n\n*Por favor comunique a um ADM*\n*A permissão de tal comando❗*\n\n𝔻𝕖𝕧𝔹𝕠𝕥™ 🤖🦾",
+      "linkFromGifBan": "https://raw.githubusercontent.com/wenealves10/devBot/main/messages/06ea6793-11f8-4860-814f-042bc0ffd690.gif",
+      "successBan": "*🎉🥳 Parabéns pelo Trabalho 🥳🎊*\n\n*Sujeito foi banido com sucesso*\n\n*Continue mantendo a ordem no grupo*"
+    },
+    "addParticipant": {
+      "addedNewParticipant": "*🎆Parabéns novo membro foi adicionado ao grupo🎆*\n\n*🥇Quem adicionou foi:*",
+      "errorAddedParticipant": "*😥Sinto muito mas membro não pode ser adicionado no grupo*\n\n𝔻𝕖𝕧𝔹𝕠𝕥™ 🤖🦾"
+    },
+    "promoteParticipant": {
+      "addedADM": "*🎇Parabéns um membro foi promovido ADM🎇*\n\n*💌Mensagem para o novo ADM💌*\n\n```💟A arte da administração, não se limita apenas em ser um ótimo gestor, mas também um excelente 👨‍⚖️líder💟```\n\n",
+      "whoNewADM": "*👨‍⚖️Nome do novo ADM:*",
+      "whoADD": "\n\n*🥇Quem promoveu foi:*",
+      "userNotExist": "*🚫Sinto muito mas este membro não possui cadastro para ser ADM🚫*\n\n*Ele precisa se registrar:* #register\n\n𝔻𝕖𝕧𝔹𝕠𝕥™ 🤖🦾"
+    },
+    "demoteParticipant": {
+      "removed":"*🚯Membro foi removido de ADM🚯*\n\n*☢Que pena você era tóxico como ADM☢*\n\n",
+      "whoRemoved": "*🔇Nome do ex.ADM:*",
+      "whoRemove": "\n\n*🥇Quem removeu foi:*"
+    }
+
   }
 }
