@@ -1,4 +1,4 @@
-const checkCommandName = /^#name(\s+)([A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ]+)(\s+)(\d{2})(\s+)([A-Za-z#+-./]+)$/gi;
+const checkCommandName = /^#name(\s+)([A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ]+)(\s+)(\d{2})(\s+)([A-Za-z#Êê+-./]+)$/gi;
 const checkCommandNumber = /^#add(\s+)(\d{12})$/gi;
 const getData = (data: string) => String(data.match(/\S+/gis)).split(",");
 const getNumber = (data: string) => data.match(/\d+/gis);

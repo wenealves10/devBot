@@ -27,6 +27,7 @@ async function main(whatsapp: Whatsapp) {
     await commandsController.addParticipant(message, whatsapp);
     await commandsController.promoteParticipant(message, whatsapp);
     await commandsController.demoteParticipant(message, whatsapp);
+    await commandsController.generateLink(message, whatsapp);
   });
 }
 

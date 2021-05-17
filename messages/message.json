@@ -6,7 +6,7 @@
   },
   "register": {
     "message1":"*Desculpe ainda estamos em fase desenvolvimento*😥,\nMas você pode contribuir com nosso projeto open source do *DevBot🤖*\nLink do *repositório do github*: https://github.com/wenealves10/devBot.git\nSeu código é sempre bem-vindo😉👍",
-    "message2": "*você precisa registrar-se, digite:*\n\n#name <nome> <idade> <linguagem-favorita>\n\n*Exemplo*: #name WeneAlves 19 TypeScript\n\n*Ok??*\n\n𝔻𝕖𝕧𝔹𝕠𝕥™ 🤖🦾",
+    "message2": "*você precisa registrar-se, digite:*\n\n#name nome idade linguagem\n\n*Obs:* ```você digitar primeiro  o comando que é #name depois seu nome, idade e linguagem de programação, tudo isso separado por espaços!! ok??```\n\n*Exemplo:*\n\n#name WeneAlves 19 TypeScript\n\nn𝔻𝕖𝕧𝔹𝕠𝕥™ 🤖🦾",
     "message3": "*você já está cadastrado* ✅\n\n*🛑Para saber mais informações🛑*\n\n*Digite:* #perfil\n\n𝔻𝕖𝕧𝔹𝕠𝕥™ 🤖🦾",
     "message4": "*você foi cadastrado com sucesso*🎉🎊🎇\n\n*🛑Para saber mais informações🛑*\n\n*Digite:* #perfil\n\n𝔻𝕖𝕧𝔹𝕠𝕥™ 🤖🦾"
 
@@ -14,7 +14,7 @@
   "perfil": {
     "linkPicture": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTn1RFHlqZz1rw9C0FADcighOWRJNz1ck6S9D1o-6ZeKJb6l1EwU__GKct7HZDbhvarvA&usqp=CAU",
     "message": "Você ainda não está *cadastrado*\n\nPor favor se cadastrar para ter acesso ao *comandos*\n\n*Digite* #register \n\n🤖👍",
-    "messageAdmin": "\t  *🛑 Comandos para ADMs 🛑*\n\n*📛Remover Participante:* #remove\n\n*✅Adicionar Participante:* #add <phone>\n\n*🟢Promover para ADM:* #promote\n\n*🔴Remover de ADM:* #demote\n\n*📶Gerar Link do Grupo:* #invitelink\n\n*🧿Retorna Grupo:* #infogroup <linkGroup>\n\n*🛄Adiciona bot:* #join <linkGroup>\n\n"
+    "messageAdmin": "\t  *🛑 Comandos para ADMs 🛑*\n\n*📛Remover Participante:* #remove\n\n*✅Adicionar Participante:* #add <phone>\n\n*🟢Promover para ADM:* #promote\n\n*🔴Remover de ADM:* #demote\n\n*📶Gerar Link do Grupo:* #invitelink\n\n*🧿Retorna Grupo:* #infogroup <linkGroup>\n\n*🛄Adicionar DevBot:* #join <linkGroup>\n\n"
   },
   "commands": {
     "removeParticipant": {
@@ -33,9 +33,13 @@
       "userNotExist": "*🚫Sinto muito mas este membro não possui cadastro para ser ADM🚫*\n\n*Ele precisa se registrar:* #register\n\n𝔻𝕖𝕧𝔹𝕠𝕥™ 🤖🦾"
     },
     "demoteParticipant": {
-      "removed":"*🚯Membro foi removido de ADM🚯*\n\n*☢Que pena você era tóxico como ADM☢*\n\n",
-      "whoRemoved": "*🔇Nome do ex.ADM:*",
+      "removed":"*🚯Membro foi removido de ADM🚯*\n\n*☢Que pena você é um Lixo de ADM🤬, seu Merdinha, FDP!!!☢*\n\n",
+      "whoRemoved": "*🔇Nome do Lixo de Ex.ADM:*",
       "whoRemove": "\n\n*🥇Quem removeu foi:*"
+    },
+    "generateLink": {
+      "generate": "*😄Opa valeu meu amigo por gerar o link do grupo!*\n*Aproveite e compartilha com seus amigos*\n*Ajude a DevBot🤖 Community alcançar várias pessoas!!*\n\n𝔻𝕖𝕧𝔹𝕠𝕥™ 🤖🦾",
+      "message": "*Comunidade para amantes de Tecnologia e Desenvolvimento de softwares*\n```Vem compartilha seus conhecimentos e projetos.```\n ```Grupo focado em desenvolvimento de bots 🦾🤖 para whatsapp e telegram.```\n```Venha faz parte da nossa comunidade DevBot🤖!!```\n\n𝔻𝕖𝕧𝔹𝕠𝕥™ 🤖🦾"
     }
 
   }

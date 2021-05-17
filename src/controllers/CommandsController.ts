@@ -3,6 +3,7 @@ import { LevelXP } from "../functions/LevelXP";
 import { UsersService } from "../services/UsersService";
 import { checkCommandNumber, getNumber, getStringClient } from "../regex";
 import messages from "../../messages/message.json";
+import tokens from "../../tokens/tokens.json";
 
 class CommandsController {
   async removeParticipant(message: Message, whatsapp: Whatsapp) {
@@ -66,7 +67,7 @@ class CommandsController {
           message.id
         );
       }
-    }, 2500);
+    }, 2000);
   }
 
   async addParticipant(message: Message, whatsapp: Whatsapp) {
@@ -206,6 +207,42 @@ class CommandsController {
       message.chatId,
       `${messages.commands.demoteParticipant.removed} ${messages.commands.demoteParticipant.whoRemoved} ${userExistsADM.name} ${messages.commands.demoteParticipant.whoRemove} ${userExists.name} \n\n𝔻𝕖𝕧𝔹𝕠𝕥™ 🤖🦾`,
       message.id
+    );
+  }
+
+  async generateLink(message: Message, whatsapp: Whatsapp) {
+    if (String(message.body).toLowerCase() !== "#invitelink") return;
+    const number_phone = getStringClient(message.sender.id, "@");
+    const usersService = new UsersService();
+
+    const userExists = await usersService.findUser(number_phone);
+
+    if (!userExists) {
+      await whatsapp.reply(message.chatId, messages.perfil.message, message.id);
+      return;
+    }
+
+    if (!userExists.admin_group) {
+      await whatsapp.reply(
+        message.chatId,
+        messages.commands.removeParticipant.userNotAdmin,
+        message.id
+      );
+      return;
+    }
+
+    const linkGroup = await whatsapp.getGroupInviteLink(tokens.group2);
+
+    await whatsapp.reply(
+      message.chatId,
+      messages.commands.generateLink.generate,
+      message.id
+    );
+
+    await whatsapp.sendLinkPreview(
+      message.chatId,
+      linkGroup,
+      messages.commands.generateLink.message
     );
   }
 }
