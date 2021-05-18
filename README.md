@@ -1,7 +1,7 @@
 
 #DevBot This is a bot for DevBot community
 
-# DevBot
+##DevBot
 This is a bot for DevBot 
 
 
