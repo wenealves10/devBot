@@ -19,6 +19,7 @@
   "commands": {
     "removeParticipant": {
       "userNotAdmin": "\t *🚫Uso restrito a ADM🚫*\n\n*Por favor comunique a um ADM*\n*A permissão de tal comando❗*\n\n𝔻𝕖𝕧𝔹𝕠𝕥™ 🤖🦾",
+      "error": "*🚫Sujeito já foi banido do grupo🚫*\n\n𝔻𝕖𝕧𝔹𝕠𝕥™ 🤖🦾",
       "linkFromGifBan": "https://raw.githubusercontent.com/wenealves10/devBot/main/messages/06ea6793-11f8-4860-814f-042bc0ffd690.gif",
       "successBan": "*🎉🥳 Parabéns pelo Trabalho 🥳🎊*\n\n*Sujeito foi banido com sucesso*\n\n*Continue mantendo a ordem no grupo*"
     },
