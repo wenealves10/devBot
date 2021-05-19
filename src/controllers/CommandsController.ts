@@ -29,6 +29,21 @@ class CommandsController {
 
     if (message.quotedMsgObj === null) return;
 
+    const banUser = getStringClient(message.quotedMsgObj.author, "@");
+
+    const numbers_users = await whatsapp.getGroupMembers(message.chatId);
+
+    const isUserExist = numbers_users.find((user) => user.id.user === banUser);
+
+    if (!isUserExist) {
+      await whatsapp.reply(
+        message.chatId,
+        messages.commands.removeParticipant.error,
+        message.id
+      );
+      return;
+    }
+
     await whatsapp.sendImageAsStickerGif(
       message.chatId,
       messages.commands.removeParticipant.linkFromGifBan
@@ -37,10 +52,7 @@ class CommandsController {
     const levelXP = new LevelXP();
 
     setTimeout(async () => {
-      await whatsapp.removeParticipant(
-        message.chatId,
-        message.quotedMsgObj.author
-      );
+      await whatsapp.removeParticipant(message.chatId, `${banUser}@c.us`);
 
       await whatsapp.reply(
         message.chatId,
