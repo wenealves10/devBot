@@ -143,7 +143,7 @@ class UsersController {
         userExists.admin_group ? "♾️" : `${userExists.commands}/20`
       }\n\n*📅Data de criação: ${dayjs(userExists.created_at).format(
         "DD/MM/YYYY HH:mm:ss"
-      )}*\n\n*⌨️Comandos digite:* #menu\n\n${
+      )}*\n\n*⌨️Comandos digite:* !menu\n\n${
         userExists.admin_group ? messages.perfil.messageAdmin : ""
       }𝔻𝕖𝕧𝔹𝕠𝕥™ 🤖🦾`
     );
